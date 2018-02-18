@@ -1,0 +1,46 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= hidden_input f, :user_id,value: @current_user.id,  class: "form-control" %>
+    <%= error_tag f, :user_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :title, class: "control-label" %>
+    <%= textarea f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, class: "control-label" %>
+    <%= textarea f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :assigned, class: "control-label" %>
+    <%= select f, :assigned, Enum.map(Tasktracker.Accounts.list_users, &{&1.name, &1.name}),  class: "form-control" %>
+    <%= error_tag f, :assigned %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, "TimeSpent(In Minutes)", class: "control-label" %>
+    <%= number_input f, :timeSpent, step: "15", min: "0", class: "form-control" %>
+    <%= error_tag f, :timeSpent %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :completed, class: "control-label" %>
+    <%= checkbox f, :completed, class: "checkbox" %>
+    <%= error_tag f, :completed %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
