@@ -7,7 +7,8 @@ defmodule Tasktracker.Accounts.User do
   schema "users" do
     field :email, :string
     field :name, :string
-    has_many :task, Tasktracker.TaskTrack.Task, on_delete: :nilify_all
+    has_many :task, Tasktracker.TaskTrack.Task, on_delete: :nilify_all, foreign_key: :user_id
+    has_many :task1, Tasktracker.TaskTrack.Task, on_delete: :nilify_all, foreign_key: :assigned
     timestamps()
   end
 

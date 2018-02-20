@@ -27,7 +27,7 @@
     <tr>
       <td><%= task.title %></td>
       <td><%= task.description %></td>
-      <td><%=if Tasktracker.Accounts.get_user_by_email(task.assigned) do task.assigned else "Add new Assignee" end%></td>
+      <td><%=if Tasktracker.Accounts.get_user(task.assigned) do Tasktracker.Accounts.get_user(task.assigned).email else "Add new Assignee" end%></td>
       <td><%= task.timeSpent %></td>
       <td><%= if(task.completed) do "Completed" else "Not Completed" end %></td>
 
