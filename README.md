@@ -6,7 +6,8 @@ Assumptions:
 2) If a User is deleted, then the Assisned column in tasks shows(Add new Assignee) if the deleted user was assigned that task.
 3) If a User is deleted, then the User column for all the tasks created by that user displays "user deleted". But the tasks       remain there.
 4) If the user who is assigned some task is deleted , then the assignee for that task can be changed by clicking the edit button.
-5) If a user changes his email id, then the email id in assigned section of tasks table is automatically changed.(I have added a foreign key constraint on assigned as well)
+5) If a user changes his email id, then the email id in assigned section of tasks table is automatically changed.(I have added a foreign key constraint on assigned as well
+6) There is a Edit Account button in the tasks page where user can edit his account details
 
 
 To start your Phoenix server:

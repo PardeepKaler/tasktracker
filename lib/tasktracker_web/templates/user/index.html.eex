@@ -1,5 +1,6 @@
 <h2>Listing Users</h2>
-
+<br>
+<span><%= link "New User", to: user_path(@conn, :new) %></span><br><br>
 <table class="table">
   <thead>
     <tr>
@@ -25,4 +26,4 @@
   </tbody>
 </table>
 
-<span><%= link "New User", to: user_path(@conn, :new) %></span>
+<span><%= link "Back", to: task_path(@conn, :index) %></span>

@@ -1,8 +1,9 @@
 <%= if @current_user do %>
 <h2>Listing Tasks</h2>
 <br>
-<h3><%= link "New Task", to: task_path(@conn, :new) %></h3>
-<br>
+<span><%= button "New Task", method: "get", class: "btn btn-primary", to: task_path(@conn, :new) %></span>
+<span><%= button "Edit Account", method: "get", class: "btn btn-primary", to: user_path(@conn, :edit, @current_user) %></span>
+<br><br>
 <table class="table">
   <colgroup>
     <col class="w">
