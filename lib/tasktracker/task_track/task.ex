@@ -20,5 +20,6 @@ defmodule Tasktracker.TaskTrack.Task do
     task
     |> cast(attrs, [:title, :description, :assigned, :timeSpent, :completed, :user_id])
     |> validate_required([:title, :description, :assigned, :timeSpent, :completed, :user_id])
+    |> foreign_key_constraint(:user_id)
   end
 end

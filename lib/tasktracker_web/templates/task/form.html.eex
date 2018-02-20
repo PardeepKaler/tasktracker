@@ -24,7 +24,7 @@
 
   <div class="form-group">
     <%= label f, :assigned, class: "control-label" %>
-    <%= select f, :assigned, Enum.map(Tasktracker.Accounts.list_users, &{&1.name, &1.name}),  class: "form-control" %>
+    <%= select f, :assigned, Enum.map(Tasktracker.Accounts.list_users, &{&1.email, &1.email}),  class: "form-control" %>
     <%= error_tag f, :assigned %>
   </div>
 

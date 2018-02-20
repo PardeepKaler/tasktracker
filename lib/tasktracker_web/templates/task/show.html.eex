@@ -4,7 +4,7 @@
 
   <li>
       <strong>User:</strong>
-      <%= @task.user.name %>
+      <%= if @task.user do @task.user.name else "User Deleted" end %>
     </li>
 
   <li>
@@ -19,7 +19,7 @@
 
   <li>
     <strong>Assigned:</strong>
-    <%= @task.assigned %>
+    <%= if Tasktracker.Accounts.get_user_by_email(@task.assigned) do @task.assigned else "Add new Assignee" end %>
   </li>
 
   <li>
@@ -29,7 +29,7 @@
 
   <li>
     <strong>Completed:</strong>
-    <%= if(@task.completed) do "yes" else "no" end %>
+    <%= if(@task.completed) do "Completed" else "Not Completed" end %>
   </li>
 
 </ul>

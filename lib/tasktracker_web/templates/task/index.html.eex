@@ -1,7 +1,9 @@
 <%= if @current_user do %>
 <h2>Listing Tasks</h2>
-
-<table class="index-table">
+<br>
+<h3><%= link "New Task", to: task_path(@conn, :new) %></h3>
+<br>
+<table class="table">
   <colgroup>
     <col class="w">
     <col class="w2">
@@ -25,9 +27,9 @@
     <tr>
       <td><%= task.title %></td>
       <td><%= task.description %></td>
-      <td><%= task.assigned %></td>
+      <td><%=if Tasktracker.Accounts.get_user_by_email(task.assigned) do task.assigned else "Add new Assignee" end%></td>
       <td><%= task.timeSpent %></td>
-      <td><%= if(task.completed) do "yes" else "no" end %></td>
+      <td><%= if(task.completed) do "Completed" else "Not Completed" end %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: task_path(@conn, :show, task), class: "btn btn-default btn-xs" %></span>
@@ -38,8 +40,6 @@
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Task", to: task_path(@conn, :new) %></span>
 <% else %>
 <br><br><br>
 <h1><%= link "Login First", to: page_path(@conn, :index) %></h1>
